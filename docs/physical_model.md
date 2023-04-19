@@ -1,13 +1,18 @@
 # Физическая модель
 
+---
+
 Таблица `offices`:
 
 | Название        | Описание              | Тип данных     | Ограничение   |
 |-----------------|-----------------------|----------------|---------------|
 | `id`            | Идентификатор офиса   | `INTEGER`      | `PRIMARY KEY` |
+| `name`          | Название              | `VARCHAR(200)` | `NOT NULL`    |
 | `company_id`    | ID компании           | `INTEGER`      | `FOREIGN KEY` |
+| `renter_id`     | ID арендатора         | `INTEGER`      | `FOREIGN KEY` |
 | `provider_id`   | ID наймодателя        | `INTEGER`      | `FOREIGN KEY` |
 | `center_id`     | ID бизнес-центра      | `INTEGER`      | `FOREIGN KEY` |
+| `address`       | Адрес                 | `VARCHAR(20)`  |               |
 | `area`          | Площадь, м^2          | `INTEGER`      | `NOT NULL`    |
 | `floors`        | Кол-во этажей         | `INTEGER`      |               |
 | `rent`          | Арендуется за, руб.   | `INTEGER`      |               |
@@ -19,7 +24,8 @@
 | Название        | Описание              | Тип данных     | Ограничение   |
 |-----------------|-----------------------|----------------|---------------|
 | `office_id`     | Идентификатор офиса   | `INTEGER`      | `FOREIGN KEY` |
-| `updated_at`    | Изменен               | `DATE`         | `NOT NULL`    |
+| `created_at`    | Создан                | `DATETIME`     | `NOT NULL`    |
+| `updated_at`    | Изменен               | `DATETIME`     | `NOT NULL`    |
 | `history`       | История               | `VARCHAR(200)` | `NOT NULL`    |
 
 
@@ -29,7 +35,7 @@
 |-----------------|-----------------------|----------------|---------------|
 | `id`            | Идентификатор центра  | `INTEGER`      | `PRIMARY KEY` |
 | `name`          | Название              | `VARCHAR(200)` | `NOT NULL`    |
-| `address`       | Адрес                 | `VARCHAR(255)` |               |
+| `address`       | Адрес                 | `VARCHAR `     |               |
 
 
 Таблица `goods`:
@@ -49,7 +55,7 @@
 |-----------------|-----------------------|----------------|---------------|
 | `id`            | ID компании           | `INTEGER`      | `PRIMARY KEY` |
 | `name`          | Название              | `VARCHAR(200)` | `NOT NULL`    |
-| `address`       | Адрес                 | `VARCHAR(255)` |               |
+| `address`       | Адрес                 | `VARCHAR(20)`  |               |
 | `type`          | Тип компании          | `VARCHAR(20)`  |               |
 
 
@@ -71,6 +77,7 @@
 | `id`            | ID склада             | `INTEGER`      | `PRIMARY KEY` |
 | `name`          | Название              | `VARCHAR(200)` | `NOT NULL`    |
 | `provider_id`   | ID наймодателя        | `INTEGER`      | `FOREIGN KEY` |
+| `renter_id`     | ID арендатора         | `INTEGER`      | `FOREIGN KEY` |
 | `company_id`    | ID компании           | `INTEGER`      | `FOREIGN KEY` |
 | `address`       | Адрес                 | `VARCHAR(20)`  |               |
 | `area`          | Площадь, м^2          | `INTEGER`      | `NOT NULL`    |
@@ -78,14 +85,14 @@
 | `class`         | Класс офиса           | `CHAR`         | `NOT NULL`    |
 | `weight`        | Нагрузка на пол, т    | `INTEGER`      |               |
 | `rail`          | Наличие рельс         | `INTEGER`      |               |
-| `temp`          | Температура           | `VARCHAR(100)` |               |
+| `temp`          | Температура, Цельс.   | `VARCHAR(100)` |               |
 
 Таблица `supplies`:
 
 | Название        | Описание           | Тип данных     | Ограничение   |
 |-----------------|--------------------|----------------|---------------|
 | `wharehouse_id` | ID склада          | `INTEGER`      | `FOREIGN KEY` |
-| `id`            | ID                 | `INTEGER`      | `PRIMARY KEY` |
 | `name`          | Название           | `VARCHAR(200)` | `NOT NULL`    |
-| `created_at`    | Дата заказа        | `DATE`         | `NOT NULL`    |
-| `delivered_at`  | Дата доставки      | `DATE`         |               |
+| `company_id`    | ID компании        | `INTEGER`      | `FOREIGN KEY` |
+| `created_at`    | Дата заказа        | `DATETIME`     | `NOT NULL`    |
+| `updated_at`    | Дата доставки      | `DATETIME`     |               |
