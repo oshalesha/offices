@@ -1,4 +1,3 @@
-
 INSERT INTO companies (company_id, company_name, company_address, company_type)
 VALUES (1, 'Google', '1600 Amphitheatre Parkway, Mountain View, CA', 'Technology'),
        (2, 'Apple', '1 Apple Park Way, Cupertino, CA', 'Technology'),
@@ -35,6 +34,7 @@ VALUES (1, 'Silicon Valley Center', '2560 N 1st St, San Jose, CA 95131'),
        (7, 'Golden Gate Center', '101 California St, San Francisco, CA 94111'),
        (8, 'Space Needle Center', '1420 5th Ave, Seattle, WA 98101');
 
+
 INSERT INTO offices (office_id, office_company_id, office_provider_id, office_center_id, office_area, office_floors,
                      office_rent, office_class)
 VALUES (1, 1, 9, 4, 200, 10, 10000, 'A'),
@@ -47,16 +47,18 @@ VALUES (1, 1, 9, 4, 200, 10, 10000, 'A'),
        (8, 6, 8, 7, 260, 11, 13000, 'A'),
        (9, 10, NULL, NULL, NULL, NULL, NULL, 'A');
 
-INSERT INTO offices_owners (owner_id, valid_from, valid_to)
-VALUES (1, '2023-04-12', '9999-12-31'),
-       (2, '2023-04-12', '9999-12-31'),
-       (3, '2023-04-12', '9999-12-31'),
-       (4, '2023-04-12', '9999-12-31'),
-       (5, '2023-04-12', '9999-12-31'),
-       (6, '2023-04-12', '9999-12-31'),
-       (7, '2023-04-12', '9999-12-31'),
-       (8, '2023-04-12', '9999-12-31'),
-       (9, '1946-03-12', '9999-12-31');
+
+INSERT INTO offices_owners (office_own_id, office_own_company_id, valid_from, valid_to)
+VALUES (1, 1, '2023-04-12', '9999-12-31'),
+       (2, 2, '2023-04-12', '9999-12-31'),
+       (3, 3, '2023-04-12', '9999-12-31'),
+       (4, 3, '2023-04-12', '9999-12-31'),
+       (5, 5, '2023-04-12', '9999-12-31'),
+       (6, 6, '2023-04-12', '9999-12-31'),
+       (7, 7, '2023-04-12', '9999-12-31'),
+       (8, 6, '2023-04-12', '9999-12-31'),
+       (9, 10, '1946-03-12', '9999-12-31');
+
 
 INSERT INTO warehouses (warehouse_id, warehouse_name, warehouse_provider_id, warehouse_company_id, warehouse_address,
                         warehouse_area, warehouse_rent, warehouse_class, warehouse_weight, warehouse_rail,
@@ -71,6 +73,7 @@ VALUES (1, 'ABC Warehouse', 6, 5, '123 Main St, Anytown, USA', 5000, 7500, 'A', 
        (8, 'Total Storage', 7, 4, '567 Willow St, Anytown, USA', 20000, 20000, 'A', 5, FALSE, 'Cool'),
        (9, 'Vegetable docker', 7, 4, '567 Oak St, Anytown, USA', 4000, 15000, 'C', 1, FALSE, 'Dry');
 
+
 INSERT INTO supplies (supply_id, supply_warehouse_id, supply_name, supply_created_at, supply_delivered_at)
 VALUES (1, 3, 'Fruit Supply Co.', '2022-01-01', '2022-01-05'),
        (2, 3, 'Tasty Treats', '2022-02-01', '2022-02-05'),
@@ -80,6 +83,7 @@ VALUES (1, 3, 'Fruit Supply Co.', '2022-01-01', '2022-01-05'),
        (6, 5, 'Sweet and Juicy', '2022-06-01', '2022-06-05'),
        (7, 5, 'Farm to Table', '2022-07-01', '2022-07-05'),
        (8, 5, 'Organic Harvest', '2022-08-01', '2022-08-05');
+
 
 INSERT INTO goods (goods_name, goods_id, goods_warehouse_id, goods_supply_id, goods_area)
 VALUES ('Apples', 1, 3, 5, 50),

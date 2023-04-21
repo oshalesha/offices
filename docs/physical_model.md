@@ -15,11 +15,12 @@
 
 Таблица `offices_owners`:
 
-| Название        | Описание              | Тип данных     | Ограничение   |
-|-----------------|-----------------------|----------------|---------------|
-| `office_own_id` | Идентификатор офиса   | `INTEGER`      | `NOT NULL`    |
-| `valid_from`    | Действует от          | `DATE`         | `NOT NULL`    |
-| `valid_to`      | Действует до          | `DATE`         | `NOT NULL`    |
+| Название                | Описание               | Тип данных     | Ограничение   |
+|-------------------------|------------------------|----------------|---------------|
+| `office_own_id`         | Идентификатор офиса    | `INTEGER`      | `NOT NULL`    |
+| `office_own_company_id` | Идентификатор компании | `INTEGER`      | `NOT NULL`    |
+| `valid_from`            | Действует от           | `DATE`         | `NOT NULL`    |
+| `valid_to`              | Действует до           | `DATE`         | `NOT NULL`    |
 
 
 Таблица `buisness_centers`:
@@ -88,4 +89,3 @@
 | `supply_name`          | Название           | `VARCHAR(200)` | `NOT NULL`    |
 | `supply_created_at`    | Дата заказа        | `DATE`         | `NOT NULL`    |
 | `supply_delivered_at`  | Дата доставки      | `DATE`         |               |
-

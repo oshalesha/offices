@@ -43,9 +43,10 @@ CREATE TABLE offices
     office_class       CHAR NOT NULL CHECK (office_class IN ('A', 'B', 'C'))
 );
 
-CREATE TABLE offices_owners -- переделать ее.
+CREATE TABLE offices_owners
 (
-    owner_id   INTEGER NOT NULL,
+    office_own_id  INTEGER NOT NULL,
+    office_own_company_id INTEGER NOT NULL,
     valid_from DATE    NOT NULL,
     valid_to   DATE    NOT NULL
 );
@@ -73,6 +74,7 @@ CREATE TABLE warehouses
     warehouse_rail        BOOLEAN,
     warehouse_temp        VARCHAR(100)
 );
+
 
 ALTER TABLE offices
     ADD FOREIGN KEY (office_company_id) REFERENCES companies (company_id);
