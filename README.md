@@ -1,39 +1,38 @@
-# Курсовой проект по дисциплине "Базы Данных"
+# Course project on the subject "Databases"
 
 ---
 
-### Введение
+### Intro
 
-<b><u>Цель работы</u>:</b> получение практических навыков работы с промышленными СУБД, проектирование
-БД (концептуальное, логическое, физическое), создание хранимых процедур, представлений,
-триггеров, индексов. Попрактиковаться в тестировании запросов (DQ — Data Quality).  
-<b><u>Инструменты</u>:</b> PostgreSQL 15, Python 3.9, Gitlab CI.
+<b><u>Purpose of the work</u>:</b> gaining practical skills in working with industrial DBMS, designing DB (conceptual, logical, physical), creating stored procedures, views,
+triggers, indexes. Practice testing queries (DQ — Data Quality).
+<b><u>Tools</u>:</b> PostgreSQL 15, Python 3.9, Gitlab CI.
 
 ---
 
-### Постановка
+### Problem statement
 
-1. Предметная область: склады, офисы, их владельцы, бизнес-центры и поставки товаров.
-   1. <u>Концептуальная модель</u>: все сущности с указанием связей даны в нотации «воронья лапка». 
-   2. <u>Логическая модель</u>: описание таблиц и их атрибутивного состава, а также указание связей в нотации «воронья 
-   лапка». БД находится в 2НФ. Для описания использовал ER-диаграмму. Есть версионная таблица.
-   3. <u>Физическая модель</u>: описание хранения таблиц в СУБД. Для каждой сущности из п.1.2 подготовил таблицу со столбцами`PRIMARY KEY`, `FOREIGN KEY` со ссылкой на внешнюю таблицу.
-2. Я подготовил DDL скрипты и создал свою базу в СУБД. 
-3. Наполнил созданную базу данными, ~10 записей в каждой таблице. 
-4. Написал 11 `INSERT`, `SELECT`, `UPDATE`, `DELETE` запросов (CRUD-запросы). 
-5. Написал 6 сложных `SELECT`-запросов с использованием:
-    1. `GROUP BY + HAVING`
-    2. `ORDER BY`
-    3. `<func>(...) OVER(...)`:
-       1. `PARTITION BY`
-       2. `ORDER BY`
-       3. `PARTITION BY + ORDER BY`
-       4. `<func>` - все 3 типа функций - агрегирующие, ранжирующие, смещения. 
-6. Написал тесты к запросам из предыдущего пункта + приложил описание самих запросов. 
-7. Подготовил 6 представлений:
-   1. 2 получаются сокрытием полей, а
-     также сокрытием технических полей. Бонусом вместе с кодом я приложил тесты для представлений.
-   2. 4 получаются соединением нескольких таблиц с целью получения осмысленной
-     сводной таблицы.
-     Бонусом вместе с кодом добавил тесты для представлений. 
-8. Создал 5 хранимых функций.
+1. Subject area: warehouses, offices, their owners, business centers and product deliveries.
+1. <u>Conceptual model</u>: all entities with links are given in crow's foot notation.
+
+2. <u>Logical model</u>: description of tables and their attribute composition, as well as links in crow's foot notation. The DB is in 2NF. I used an ER diagram for the description. There is a versioned table.
+3. <u>Physical model</u>: description of table storage in the DBMS. For each entity from p. 1.2, I prepared a table with `PRIMARY KEY`, `FOREIGN KEY` columns with a link to an external table.
+2. I prepared DDL scripts and created my own database in the DBMS.
+
+3. I filled the created database with data, ~10 records in each table.
+4. Wrote 11 `INSERT`, `SELECT`, `UPDATE`, `DELETE` queries (CRUD queries).
+5. Wrote 6 complex `SELECT` queries using:
+1. `GROUP BY + HAVING`
+2. `ORDER BY`
+3. `<func>(...) OVER(...)`:
+1. `PARTITION BY`
+2. `ORDER BY`
+3. `PARTITION BY + ORDER BY`
+4. `<func>` - all 3 types of functions - aggregation, ranking, offsets.
+6. Wrote tests for the queries from the previous point + attached a description of the queries themselves.
+7. Prepared 6 views:
+1. 2 are obtained by hiding fields, and
+also by hiding technical fields. As a bonus, along with the code, I attached tests for the views. 2. 4 are obtained by joining several tables in order to obtain a meaningful
+summary table.
+As a bonus, I added tests for views along with the code.
+8. Created 5 stored functions.
